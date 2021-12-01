@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  redact-pipeline:
+    image: '${REDACT_PIPELINE_IMAGE}'
+    container_name: redact-pipeline
+    ports:
+      - '${REDACT_API_PORT}:8787'
+    volumes:
+        - '${REDACT_LICENSE_FILE}:/license.bal'
+    environment:
+      REDACT_GPU_URL: 'redact-infer:8001'
+      LP_DETECTION_SERVICE: 'redact-infer:8003'
+  redact-infer:
+    image:  ${REDACT_INFER_IMAGE}
+    container_name: redact-infer
+    ports:
+      - '${REDACT_INFER_HEALTH_PORT}:8000'
+  redact-utils:
+    image:  ${REDACT_UTILS_IMAGE}
+    container_name: redact-utils
+    ports:
+      - '${REDACT_UI_PORT}:80'
+    environment:
+      REDACT_URL: http://${HOST_IP}:8787
