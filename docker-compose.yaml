@@ -21,4 +21,4 @@ services:
     ports:
       - '${REDACT_UI_PORT}:80'
     environment:
-      REDACT_URL: http://${HOST_IP}:8787
+      REDACT_URL: http://${HOST_IP}:${REDACT_API_PORT}
