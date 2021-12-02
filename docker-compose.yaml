@@ -3,6 +3,15 @@ services:
   redact-pipeline:
     image: '${REDACT_PIPELINE_IMAGE}'
     container_name: redact-pipeline
+    depends_on:
+      redact-infer:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-sL", "--connect-timeout", "3", "http://127.0.0.1:8787",  "-o",  "/dev/null"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
     ports:
       - '${REDACT_API_PORT}:8787'
     volumes:
@@ -13,11 +22,18 @@ services:
   redact-infer:
     image:  ${REDACT_INFER_IMAGE}
     container_name: redact-infer
-    ports:
-      - '${REDACT_INFER_HEALTH_PORT}:8000'
+    healthcheck:
+      test: ["CMD", "curl", "-sL", "--connect-timeout", "3", "http://127.0.0.1:8000/v2/health/ready",  "-o",  "/dev/null"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: "120s"
   redact-utils:
     image:  ${REDACT_UTILS_IMAGE}
     container_name: redact-utils
+    depends_on:
+      redact-pipeline:
+        condition: service_healthy 
     ports:
       - '${REDACT_UI_PORT}:80'
     environment:
