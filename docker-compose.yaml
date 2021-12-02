@@ -12,6 +12,7 @@ services:
       timeout: 10s
       retries: 10
       start_period: "10s"
+    restart: always
     ports:
       - '${REDACT_API_PORT}:8787'
     volumes:
@@ -23,11 +24,12 @@ services:
     image:  ${REDACT_INFER_IMAGE}
     container_name: redact-infer
     healthcheck:
-      test: ["CMD", "curl", "-sL", "--connect-timeout", "3", "http://127.0.0.1:8000/v2/health/ready",  "-o",  "/dev/null"]
+      test: ["CMD-SHELL", "httpd=`curl -sL --connect-timeout 3 -w \"%{http_code}\\\n\" \"http://127.0.0.1:8000/v2/health/ready\" -o /dev/null` || echo \"000\"; if [[ \"$$httpd\" != \"200\" ]]; then exit 1; fi; exit 0"]
       interval: 30s
       timeout: 10s
       retries: 10
       start_period: "120s"
+    restart: always
   redact-utils:
     image:  ${REDACT_UTILS_IMAGE}
     container_name: redact-utils
