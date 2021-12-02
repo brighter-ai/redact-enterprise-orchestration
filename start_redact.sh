@@ -16,6 +16,12 @@ export REDACT_LICENSE_FILE="./license.bal"
 
 #-----------------------------------------------------------------------
 
+# check license file
+if [ ! -f ${REDACT_LICENSE_FILE} ]; then
+    echo "Please make sure that license file with path \"${REDACT_LICENSE_FILE}\" exists."
+    exit 1
+fi
+
 # start containers
 export HOST_IP=$(hostname -I | awk '{print $1}')
 docker-compose -f docker-compose.yaml up --force-recreate -d --remove-orphans
