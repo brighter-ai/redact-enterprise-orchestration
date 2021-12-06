@@ -1,3 +1,5 @@
+[![Brighter AI logo](brighter.png)](https://brighter.ai/)
+
 # Running brighter Redact Enterprise
 Start an instance of brighter Redact Enterprise, consisting of three redact containers which are managed by docker-compose.
 
