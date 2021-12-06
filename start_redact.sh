@@ -1,19 +1,9 @@
 #!/bin/bash
 set -o errexit
 set -o nounset
-
-#-----------------------------------------------------------------------
-
-export REDACT_PIPELINE_IMAGE="brighter.azurecr.io/redact:v4.3.0-246"
-export REDACT_INFER_IMAGE="brighter.azurecr.io/redact-infer:1.2.0"
-export REDACT_UTILS_IMAGE="brighter.azurecr.io/redact-utils:0.12.2"
-
-export REDACT_API_PORT=8787
-export REDACT_UI_PORT=8786
-
-export REDACT_LICENSE_FILE="./license.bal"
-
-#-----------------------------------------------------------------------
+set -a
+source docker-compose.env
+set +a
 
 # check license file
 if [ ! -f ${REDACT_LICENSE_FILE} ]; then
