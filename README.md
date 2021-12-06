@@ -45,15 +45,32 @@ REDACT_UTILS_IMAGE=...
 REDACT_API_PORT=...
 REDACT_UI_PORT=...
 ```
-#### License File
+#### REDACT_LICENSE_FILE
 The location and name of the local redact license file can be changed with the following environment variable:
 ```
 REDACT_LICENSE_FILE=...
 ```
-#### Limiting GPUs
+#### GPU_IDS
 Simply change the `GPU_IDS` variable to select your desired GPUs.\
 E.g.:
 - `GPU_IDS=0,1,2` for GPUs with IDs 0, 1 and 2
 - `GPU_IDS=all` for all GPUs.
 
 See [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/user-guide.html#gpu-enumeration) for more information.
+
+#### GPU_CONCURRENCY
+Sets the number of parallel deep learning processes. This should match the amount of available GPUs.
+
+#### CPU_CONCURRENCY
+Sets the number of parallel processes for all the other computations. This can be used to fine tune performance to the available CPU. Be aware that increasing this value will also increase memory usage.
+
+#### Disabling Features
+Disabling features can be used to reduce memory consumption and lowering idle load.
+```
+DISABLE_FACES={true | false}
+DISABLE_LICENSE_PLATES={true | false}
+DISABLE_PERSONS={true | false}
+DISABLE_BLUR={true | false}
+DISABLE_EXTRACT={true | false}
+DISABLE_DNAT={true | false}
+```
