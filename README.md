@@ -19,10 +19,12 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 
 ## Starting brighter Redact Enterprise
 
+0. (optional) Change the default configuration as described [below](###configuration)
+
 1. Start redact in default configuration by running:
 `./start_redact.sh`
 
-2. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or flassger interface($HOSTIP:8787).
+2. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or the flassger interface($HOSTIP:8787).
 
 3. Redact can be shut down with the following script:
 `./stop_redact.sh`
