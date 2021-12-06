@@ -1,4 +1,4 @@
-[![Brighter AI logo](brighter.png)](https://brighter.ai/)
+[![Brighter AI logo](./pictures/brighter.png)](https://brighter.ai/)
 
 # Running brighter Redact Enterprise
 Start an instance of brighter Redact Enterprise, consisting of three redact containers which are managed by docker-compose.
@@ -6,7 +6,7 @@ Start an instance of brighter Redact Enterprise, consisting of three redact cont
 
 ## brighter Redact Enterprise
 brighter Redact Enterprise is an ecosystem comprising of three containers which are managed by docker-compose. The three containers - redact, redact-gpu and redact-utils are described in the architecture below.
-![image](./redact_containers.png)
+![image](./pictures/redact_containers.png)
 
 ## Running brighter Redact services
 ### Prerequisites
@@ -65,7 +65,7 @@ Sets the number of parallel deep learning processes. This should match the amoun
 Sets the number of parallel processes for all the other computations. This can be used to fine tune performance to the available CPU. Be aware that increasing this value will also increase memory usage.
 
 #### Disabling Features
-Disabling features can be used to reduce memory consumption and lowering idle load.
+Disabling features can be used to reduce memory consumption and lowering the idle load.
 ```
 DISABLE_FACES={true | false}
 DISABLE_LICENSE_PLATES={true | false}
