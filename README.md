@@ -1,5 +1,5 @@
 # Running brighter Redact Enterprise
-Start an instance of brighter Redact Enterprise, with the help of the three redact containers as shown below.
+Start an instance of brighter Redact Enterprise, consisting of three redact containers which are managed by docker-compose.
 
 
 ## brighter Redact Enterprise
@@ -19,15 +19,18 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 
 ## Starting brighter Redact Enterprise
 
-Start redact in default configuration by running:
+1. Start redact in default configuration by running:
 `./start_redact.sh`
 
-Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or flassger interface($HOSTIP:8787).
+2. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or flassger interface($HOSTIP:8787).
+
+3. Redact can be shut down with the following script:
+`./stop_redact.sh`
 
 ### Configuration
 The configuration of the docker-compose setup can be changed within the [docker-compose.env](./docker-compose.env) file.
 
-#### Docker Images
+#### Redact Docker Images
 ```
 REDACT_PIPELINE_IMAGE=...
 REDACT_INFER_IMAGE=...
@@ -39,10 +42,14 @@ REDACT_API_PORT=...
 REDACT_UI_PORT=...
 ```
 #### License File
-The location and name of the redact license file can be changed with the following environment variable:
+The location and name of the local redact license file can be changed with the following environment variable:
 ```
 REDACT_LICENSE_FILE=...
 ```
 #### Limiting GPUs
+Simply change the `GPU_IDS` variable to select your desired GPUs.\
+E.g.:
+- `GPU_IDS=0,1,2` for GPUs with IDs 0, 1 and 2
+- `GPU_IDS=all` for all GPUs.
 
-
+See [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/user-guide.html#gpu-enumeration) for more information.
