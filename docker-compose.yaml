@@ -30,6 +30,8 @@ services:
       retries: 10
       start_period: "120s"
     restart: always
+    environment:
+      NVIDIA_VISIBLE_DEVICES: ${GPU_IDS}
   redact-utils:
     image:  ${REDACT_UTILS_IMAGE}
     container_name: redact-utils
