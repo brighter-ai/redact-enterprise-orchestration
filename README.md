@@ -18,5 +18,31 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 |-------------|:------------------------|
 
 ## Starting brighter Redact Enterprise
-Start the redact-gpu image on all gpus by running:
+
+Start redact in default configuration by running:
 `./start_redact.sh`
+
+Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or flassger interface($HOSTIP:8787).
+
+### Configuration
+The configuration of the docker-compose setup can be changed within the [docker-compose.env](./docker-compose.env) file.
+
+#### Docker Images
+```
+REDACT_PIPELINE_IMAGE=...
+REDACT_INFER_IMAGE=...
+REDACT_UTILS_IMAGE=...
+```
+#### Ports
+```
+REDACT_API_PORT=...
+REDACT_UI_PORT=...
+```
+#### License File
+The location and name of the redact license file can be changed with the following environment variable:
+```
+REDACT_LICENSE_FILE=...
+```
+#### Limiting GPUs
+
+
