@@ -19,7 +19,7 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 
 ## Starting brighter Redact Enterprise
 
-0. (optional) Change the default configuration as described [below](###configuration)
+0. (optional) Change the default configuration as described [below](#configuration)
 
 1. Start redact in default configuration by running:
 `./start_redact.sh`
