@@ -20,6 +20,13 @@ services:
     environment:
       REDACT_GPU_URL: 'redact-infer:8001'
       LP_DETECTION_SERVICE: 'redact-infer:8003'
+      GPU_CONCURRENCY: ${GPU_CONCURRENCY}
+      CPU_CONCURRENCY: ${CPU_CONCURRENCY}
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_EXTRACT: ${DISABLE_EXTRACT}
+      DISABLE_DNAT: ${DISABLE_DNAT}
   redact-infer:
     image:  ${REDACT_INFER_IMAGE}
     container_name: redact-infer
@@ -32,13 +39,6 @@ services:
     restart: always
     environment:
       NVIDIA_VISIBLE_DEVICES: ${GPU_IDS}
-      GPU_CONCURRENCY: ${GPU_CONCURRENCY}
-      CPU_CONCURRENCY: ${CPU_CONCURRENCY}
-      DISABLE_FACES: ${DISABLE_FACES}
-      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
-      DISABLE_BLUR: ${DISABLE_BLUR}
-      DISABLE_EXTRACT: ${DISABLE_EXTRACT}
-      DISABLE_DNAT: ${DISABLE_DNAT}
   redact-utils:
     image:  ${REDACT_UTILS_IMAGE}
     container_name: redact-utils
