@@ -1,13 +1,23 @@
 version: '3.7'
 services:
-  redact-pipeline:
-    image: '${REDACT_PIPELINE_IMAGE}'
-    container_name: redact-pipeline
+  redact:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}
     depends_on:
-      redact-infer:
+      redact-gpu:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-sL", "--connect-timeout", "3", "http://127.0.0.1:8787",  "-o",  "/dev/null"]
+      test:
+        [
+          "CMD",
+          "curl",
+          "-sL",
+          "--connect-timeout",
+          "3",
+          "http://127.0.0.1:8787",
+          "-o",
+          "/dev/null"
+        ]
       interval: 10s
       timeout: 10s
       retries: 10
@@ -16,10 +26,10 @@ services:
     ports:
       - '${REDACT_API_PORT}:8787'
     volumes:
-        - '${REDACT_LICENSE_FILE}:/license.bal'
+      - '${REDACT_LICENSE_FILE}:/license.bal'
     environment:
-      REDACT_GPU_URL: 'redact-infer:8001'
-      LP_DETECTION_SERVICE: 'redact-infer:8003'
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
       GPU_CONCURRENCY: ${GPU_CONCURRENCY}
       CPU_CONCURRENCY: ${CPU_CONCURRENCY}
       DISABLE_FACES: ${DISABLE_FACES}
@@ -27,11 +37,18 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_EXTRACT: ${DISABLE_EXTRACT}
       DISABLE_DNAT: ${DISABLE_DNAT}
-  redact-infer:
-    image:  ${REDACT_INFER_IMAGE}
-    container_name: redact-infer
+
+  redact-gpu:
+    image: ${REDACT_GPU_IMAGE}
+    container_name: ${REDACT_GPU_CONTAINER_NAME}
     healthcheck:
-      test: ["CMD-SHELL", "httpd=`curl -sL --connect-timeout 3 -w \"%{http_code}\\\n\" \"http://127.0.0.1:8000/v2/health/ready\" -o /dev/null` || echo \"000\"; if [[ \"$$httpd\" != \"200\" ]]; then exit 1; fi; exit 0"]
+      test:
+        [
+          "CMD-SHELL",
+          "httpd=`curl -sL --connect-timeout 3 -w \"%{http_code}\\
+
+            \" \"http://127.0.0.1:8000/v2/health/ready\" -o /dev/null` || echo \"000\"; if [[ \"$$httpd\" != \"200\" ]]; then exit 1; fi; exit 0"
+        ]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -39,12 +56,13 @@ services:
     restart: always
     environment:
       NVIDIA_VISIBLE_DEVICES: ${GPU_IDS}
+
   redact-utils:
-    image:  ${REDACT_UTILS_IMAGE}
-    container_name: redact-utils
+    image: ${REDACT_UTILS_IMAGE}
+    container_name: ${REDACT_UTILS_CONTAINER_NAME}
     depends_on:
-      redact-pipeline:
-        condition: service_healthy 
+      redact:
+        condition: service_healthy
     ports:
       - '${REDACT_UI_PORT}:80'
     environment:
