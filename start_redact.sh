@@ -28,7 +28,7 @@ fi
 for container in ${container_name}; do
     if [ $(docker ps -a -q -f name="^${container}$") ]; then
         echo "A Container with the name '${container}' already exists please make sure to remove it before starting a new one."
-        echo "If you intent to start a seperate instance please choose a differnt container name in the env file."
+        echo "If you intend to start a seperate instance please choose a differnt container name in the env file."
         exit 1
     fi
 done
