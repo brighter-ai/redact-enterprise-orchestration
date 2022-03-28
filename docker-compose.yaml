@@ -54,6 +54,7 @@ services:
       retries: 10
       start_period: "120s"
     restart: always
+    runtime: nvidia
     environment:
       NVIDIA_VISIBLE_DEVICES: ${GPU_IDS}
 
