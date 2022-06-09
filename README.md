@@ -73,14 +73,6 @@ E.g.:
 
 See [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/user-guide.html#gpu-enumeration) for more information.
 
-#### GPU_CONCURRENCY
-
-Sets the number of parallel deep learning processes. This should match the amount of available GPUs.
-
-#### CPU_CONCURRENCY
-
-Sets the number of parallel processes for all the other computations. This can be used to fine tune performance to the available CPU. Be aware that increasing this value will also increase memory usage.
-
 #### Disabling Features
 
 Disabling features can be used to reduce memory consumption and lowering the idle load.
