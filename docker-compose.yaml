@@ -7,16 +7,17 @@ services:
       redact-gpu:
         condition: service_healthy
     healthcheck:
-      test:
+      test: 
         [
           "CMD",
           "curl",
-          "-sL",
-          "--connect-timeout",
-          "3",
-          "http://127.0.0.1:8787",
+          "-s",
           "-o",
-          "/dev/null"
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
         ]
       interval: 10s
       timeout: 10s
