@@ -69,3 +69,11 @@ services:
       - '${REDACT_UI_PORT}:80'
     environment:
       REDACT_URL: http://${HOST_IP}:${REDACT_API_PORT}
+networks:
+  default:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 172.20.0.1/16
+            gateway: 172.20.0.1
