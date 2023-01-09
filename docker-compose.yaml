@@ -38,6 +38,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_EXTRACT: ${DISABLE_EXTRACT}
       DISABLE_DNAT: ${DISABLE_DNAT}
+    networks:
+      - network
 
   redact-gpu:
     image: ${REDACT_GPU_IMAGE}
@@ -58,6 +60,8 @@ services:
     runtime: nvidia
     environment:
       NVIDIA_VISIBLE_DEVICES: ${GPU_IDS}
+    networks:
+      - network
 
   redact-utils:
     image: ${REDACT_UTILS_IMAGE}
@@ -69,8 +73,10 @@ services:
       - '${REDACT_UI_PORT}:80'
     environment:
       REDACT_URL: http://${HOST_IP}:${REDACT_API_PORT}
+    networks:
+      - network
 networks:
-  default:
+  network:
       driver: bridge
       ipam:
         driver: default
