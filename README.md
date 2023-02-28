@@ -24,21 +24,22 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 
 ## Starting brighter Redact Enterprise
 
-0. (optional) Change the default configuration as described [below](#configuration)
+1. Setup the configuration as described [below](#configuration)
 
-1. Start redact in default configuration by running:
+2. Start redact in default configuration by running:
 `./start_redact.sh`
 if you also want to start the graphical user interface add the `-u` flag
 `./start_redact.sh -u`
 
-2. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or the flassger interface($HOSTIP:8787).
+1. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or the flassger interface($HOSTIP:8787).
 
-3. Redact can be shut down with the following script:
+2. Redact can be shut down with the following script:
 `./stop_redact.sh`
 
 ### Configuration
 
-The configuration of the docker-compose setup can be changed within the [docker-compose.env](./docker-compose.env) file.
+To configure the container please copy the '.env.template' file and rename it to '.env'. Afterwards adjust the variables as needed.
+It's likely that the 'REDACT_LICENSE_FILE' needs adjustment.
 
 #### Redact Docker Images
 

@@ -1,9 +1,7 @@
 #!/bin/bash
 set -o errexit
 set -o nounset
-set -a
-source docker-compose.env
-set +a
+[ ! -f .env ] || export $(grep -v '^#' .env | xargs)
 
 while getopts u opt; do
     case $opt in
