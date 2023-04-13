@@ -52,9 +52,9 @@ REDACT_UTILS_IMAGE=...
 
 The following GPU-specific containers exist, and can be used only with the specified GPU type for speed improvements:
 
-| Standard Image | T4 Optimized Image |
-| - | - |
-| redact-gpu:2.3.0 | redact-gpu:2.3.0-trt-T4 |
+| Standard Image   | T4 Optimized Image      |
+|------------------|-------------------------|
+| redact-gpu:2.3.1 | redact-gpu:2.3.1-trt-T4 |
 
 This applys to the `REDACT_GPU_IMAGE` located in `docker-compose.env`
 
