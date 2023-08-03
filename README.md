@@ -97,3 +97,9 @@ DISABLE_BLUR={true | false}
 DISABLE_EXTRACT={true | false}
 DISABLE_DNAT={true | false}
 ```
+
+#### Retrieving Error Logs
+
+If there are any issues with processing files, the error logs of all micro-services can be downloaded and sent to Brighter AI for further investigation.
+
+To download the error logs, run `./download_logs.sh` and send the output zip file (`redact_logs.zip`) to Brighter AI
