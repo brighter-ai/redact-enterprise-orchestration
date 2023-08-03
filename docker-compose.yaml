@@ -7,7 +7,7 @@ services:
       redact-gpu:
         condition: service_healthy
     healthcheck:
-      test: 
+      test:
         [
           "CMD",
           "curl",
@@ -30,8 +30,6 @@ services:
       - '${REDACT_LICENSE_FILE}:/license.bal'
     environment:
       REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
-      LOG_FORMAT: 'json'
-      LOG_TARGET: 'stdout'
       REDACT_GPU_URL: 'redact-gpu:8001'
       DISABLE_FACES: ${DISABLE_FACES}
       DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
