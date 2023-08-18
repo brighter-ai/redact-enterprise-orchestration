@@ -6,7 +6,7 @@ Start an instance of brighter Redact Enterprise, consisting of three redact cont
 
 ## brighter Redact Enterprise
 
-brighter Redact Enterprise is an ecosystem comprising of three containers which are managed by docker-compose. The three containers - redact, redact-gpu and redact-utils are described in the architecture below.
+brighter Redact Enterprise is an ecosystem comprising of three containers. The three containers - redact, redact-gpu and redact-utils are described in the architecture below.
 ![image](./pictures/redact_containers.png)
 
 ## Running brighter Redact services
@@ -15,11 +15,11 @@ brighter Redact Enterprise is an ecosystem comprising of three containers which 
 
 Log in to the brighter AI docker registry with your credentials:
 
-`docker login docker.brighter.ai`
+`docker login docker.brighter.ai -u enterprise -p <api-key>`
 
-Make sure you have access to your redact license file. For this guide, we'll assume that it's stored within the same folder as the docker-compose.yaml file and named `./license.bal`
+Make sure you have access to your redact license file. For this guide, we'll assume that it's stored under `/home/${USER}/license.bal` and named `./license.bal`
 
-| Usage-based licenses | If you're using a usage-based license you must have an active internet connection at all times!       |
+| Usage-based licenses | If you're using a usage-based license you must have an active internet connection at all times or run the Redact-License-Server!       |
 |-------------|:------------------------|
 
 ## Starting brighter Redact Enterprise
@@ -31,7 +31,7 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 if you also want to start the graphical user interface add the `-u` flag
 `./start_redact.sh -u`
 
-2. Start anonymizing using the ui ($HOSTIP:8080/ui), sra ($HOSTIP:8080/sra), or the flassger interface($HOSTIP:8787).
+2. Start anonymizing using the ui ( http://$HOSTIP:8080/ui ), sra ( http://$HOSTIP:8080/sra ), or the flassger interface( http://$HOSTIP:8787 ).
 
 3. Redact can be shut down with the following script:
 `./stop_redact.sh`
