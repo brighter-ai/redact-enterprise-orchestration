@@ -41,7 +41,7 @@ if [ ${ui+x} ]; then
 fi
 
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker-compose -f docker-compose.yaml up --force-recreate -d --remove-orphans ${services}
+docker compose -f docker-compose.yaml up --force-recreate -d --remove-orphans ${services}
 
 # print some urls
 echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"

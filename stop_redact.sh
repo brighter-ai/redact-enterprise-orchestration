@@ -7,4 +7,4 @@ set +a
 
 # start containers
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker-compose down --remove-orphans
+docker compose down --remove-orphans

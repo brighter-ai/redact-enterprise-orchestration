@@ -36,6 +36,8 @@ if you also want to start the graphical user interface add the `-u` flag
 3. Redact can be shut down with the following script:
 `./stop_redact.sh`
 
+IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/). 
+
 ### Configuration
 
 The configuration of the docker-compose setup can be changed within the [docker-compose.env](./docker-compose.env) file.
