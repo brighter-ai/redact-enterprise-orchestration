@@ -36,7 +36,6 @@ cp docker-compose.yaml $installation_dir
 cp license.bal $installation_dir
 cp start_redact.sh $installation_dir
 cp stop_redact.sh $installation_dir
-printf "INSTALLATION_DIR=$installation_dir" >> $installation_dir/docker-compose.env
 
 # put unit files in directories
 cp redact.service /etc/systemd/system/

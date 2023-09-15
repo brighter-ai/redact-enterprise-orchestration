@@ -2,6 +2,9 @@
 set -o errexit
 set -o nounset
 set -a
+if [ -z $INSTALLATION_DIR ]; then
+    INSTALLATION_DIR="."
+fi
 source ${INSTALLATION_DIR}/docker-compose.env
 set +a
 
