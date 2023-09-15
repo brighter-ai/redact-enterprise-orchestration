@@ -2,7 +2,7 @@
 set -o errexit
 set -o nounset
 set -a
-installation_dir=$INSTALLATION_DIR
+installation_dir=${INSTALLATION_DIR}
 if [ -z $installation_dir ]; then
     installation_dir="."
 fi
