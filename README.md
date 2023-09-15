@@ -36,7 +36,7 @@ if you also want to start the graphical user interface add the `-u` flag
 3. Redact can be shut down with the following script:
 `./stop_redact.sh`
 
-IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/). 
+IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/).
 
 ### Configuration
 
@@ -107,3 +107,9 @@ DISABLE_DNAT={true | false}
 If there are any issues with processing files, the error logs of all micro-services can be downloaded and sent to Brighter AI for further investigation.
 
 To download the error logs, run `./download_logs.sh` and send the output zip file (`redact_logs.zip`) to Brighter AI
+
+#### Installing as a Service
+
+To install Redact Enterprise as a systemd service, use the `./install.sh` script and supply an installtion directory. For example, `sudo ./install.sh /etc` will install the systemd service and store the necessary files under `/etc`. To uninstall, run `./uninstall.sh`, also with the installtion directory as an argument.
+
+After running the installtion script, the service can be started with `sudo systemctl start redact.service` and stopped with `sudo systemctl stop redact.service`. Starting the service for the first time may take a few minutes, since the docker images may need to be downloaded. 
