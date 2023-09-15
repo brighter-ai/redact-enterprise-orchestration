@@ -22,6 +22,7 @@ if [ -z "$installation_dir" ]; then
     echo "Please provide an installtion directory with './install.sh /path/to/installation'"
     exit 1
 fi
+installation_dir="$installation_dir/redact"
 
 if [ -f "/etc/systemd/system/redact.service" ]; then
     echo "A Redact service is already installed. Please remove it and install again."
@@ -29,13 +30,13 @@ if [ -f "/etc/systemd/system/redact.service" ]; then
 fi
 
 # copy license and external files
-mkdir $installation_dir/redact
-cp docker-compose.env $installation_dir/redact/
-cp docker-compose.yaml $installation_dir/redact/
-cp license.bal $installation_dir/redact/
-cp start_redact.sh $installation_dir/redact/
-cp stop_redact.sh $installation_dir/redact/
-export INSTALLATION_DIR=$installation_dir >> $installation_dir/redact/docker-compose.env
+mkdir $installation_dir
+cp docker-compose.env $installation_dir
+cp docker-compose.yaml $installation_dir
+cp license.bal $installation_dir
+cp start_redact.sh $installation_dir
+cp stop_redact.sh $installation_dir
+export INSTALLATION_DIR=$installation_dir >> $installation_dir/docker-compose.env
 
 # put unit files in directories
 cp redact.service /etc/systemd/system/
