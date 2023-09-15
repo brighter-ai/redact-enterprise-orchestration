@@ -2,10 +2,11 @@
 set -o errexit
 set -o nounset
 set -a
-if [ -z $INSTALLATION_DIR ]; then
-    INSTALLATION_DIR="."
+installation_dir=$INSTALLATION_DIR
+if [ -z $installation_dir ]; then
+    installation_dir="."
 fi
-source ${INSTALLATION_DIR}/docker-compose.env
+source $installation_dir/docker-compose.env
 set +a
 
 while getopts u opt; do
@@ -16,8 +17,8 @@ while getopts u opt; do
 done
 
 # check license file
-if [ ! -f ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE} ]; then
-    echo "Please make sure that license file with path \"${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}\" exists."
+if [ ! -f $installation_dir/${REDACT_LICENSE_FILE} ]; then
+    echo "Please make sure that license file with path \"$installation_dir/${REDACT_LICENSE_FILE}\" exists."
     exit 1
 fi
 
@@ -44,7 +45,7 @@ if [ ${ui+x} ]; then
 fi
 
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker compose -f ${INSTALLATION_DIR}/docker-compose.yaml up --force-recreate -d --remove-orphans ${services}
+docker compose -f $installation_dir/docker-compose.yaml up --force-recreate -d --remove-orphans ${services}
 
 # print some urls
 echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"
