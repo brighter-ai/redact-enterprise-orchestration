@@ -41,7 +41,7 @@ export INSTALLATION_DIR=$installation_dir >> $installation_dir/docker-compose.en
 # put unit files in directories
 cp redact.service /etc/systemd/system/
 mkdir /etc/systemd/system/redact.service.d
-echo "[Service]\nEnvironment=\"INSTALLATION_DIR=$installation_dir\"" > /etc/systemd/system/redact.service.d/override.conf
+printf "[Service]\nEnvironment=\"INSTALLATION_DIR=$installation_dir\"" > /etc/systemd/system/redact.service.d/override.conf
 
 # reload systemd daemon
 systemctl daemon-reload
