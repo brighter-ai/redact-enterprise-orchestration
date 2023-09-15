@@ -2,9 +2,9 @@
 set -o errexit
 set -o nounset
 set -a
-source docker-compose.env
+source ${INSTALLATION_DIR}/docker-compose.env
 set +a
 
 # start containers
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker compose down --remove-orphans
+docker compose -f ${INSTALLATION_DIR}/docker-compose.yaml down --remove-orphans
