@@ -36,7 +36,7 @@ if you also want to start the graphical user interface add the `-u` flag
 3. Redact can be shut down with the following script:
 `./stop_redact.sh`
 
-IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/). 
+IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/).
 
 ### Configuration
 
@@ -56,6 +56,7 @@ The following GPU-specific containers exist, and can be used only with the speci
 
 | Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     |
 |------------------|-------------------------------|---------------------------------|----------------------------|
+| redact-gpu:2.6.1 | redact-gpu:2.6.1-T4           | redact-gpu:2.6.1-A100           | redact-gpu:2.6.1-2080ti    |
 | redact-gpu:2.6.0 | redact-gpu:2.6.0-T4           | redact-gpu:2.6.0-A100           | redact-gpu:2.6.0-2080ti    |
 | redact-gpu:2.5.1 | redact-gpu:2.5.1-T4           | redact-gpu:2.5.1-A100           | redact-gpu:2.5.1-2080ti    |
 | redact-gpu:2.5.0 | redact-gpu:2.5.0-T4           | redact-gpu:2.5.0-A100           | redact-gpu:2.5.0-2080ti    |
