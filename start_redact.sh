@@ -12,7 +12,7 @@ while getopts u opt; do
     case $opt in
         u) ui="SET"
         ;;
-        nd) nodetach="SET"
+        d) detach="SET"
         ;;
     esac
 done
@@ -46,7 +46,7 @@ if [ ${ui+x} ]; then
 fi
 
 args="--force-recreate --remove-orphans"
-if [ ! -v nodetach ]; then
+if [ -v detach ]; then
     args="${args} -d"
 fi
 
