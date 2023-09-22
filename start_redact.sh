@@ -53,9 +53,11 @@ fi
 export HOST_IP=$(hostname -I | awk '{print $1}')
 docker compose -f $installation_dir/docker-compose.yaml up ${args} ${services}
 
-# print some urls
-echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"
-if [ ${ui+x} ]; then
-    echo "redact UI  running at http://${HOST_IP}:${REDACT_UI_PORT}/ui";
-    echo "redact SRA running at http://${HOST_IP}:${REDACT_UI_PORT}/sra";
+if [ -v detach ]; then
+    # print some urls
+    echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"
+    if [ ${ui+x} ]; then
+        echo "redact UI  running at http://${HOST_IP}:${REDACT_UI_PORT}/ui";
+        echo "redact SRA running at http://${HOST_IP}:${REDACT_UI_PORT}/sra";
+    fi
 fi
