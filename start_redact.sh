@@ -12,6 +12,8 @@ while getopts u opt; do
     case $opt in
         u) ui="SET"
         ;;
+        nd) nodetach="SET"
+        ;;
     esac
 done
 
@@ -43,8 +45,13 @@ if [ ${ui+x} ]; then
     services="${services} redact-utils";
 fi
 
+args="--force-recreate --remove-orphans"
+if [ ! -v nodetach ]; then
+    args="${args} -d"
+fi
+
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker compose -f $installation_dir/docker-compose.yaml up --force-recreate --remove-orphans ${services}
+docker compose -f $installation_dir/docker-compose.yaml up ${args} ${services}
 
 # print some urls
 echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"
