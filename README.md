@@ -27,9 +27,10 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 0. (optional) Change the default configuration as described [below](#configuration)
 
 1. Start redact in default configuration by running:
-`./start_redact.sh`
+`./start_redact.sh -d`
+the `-d` flag is recommended to run the containers in detached mode.
 if you also want to start the graphical user interface add the `-u` flag
-`./start_redact.sh -u`
+`./start_redact.sh -du`
 
 2. Start anonymizing using the ui ( http://$HOSTIP:8080/ui ), sra ( http://$HOSTIP:8080/sra ), or the flassger interface( http://$HOSTIP:8787 ).
 
@@ -112,4 +113,4 @@ To download the error logs, run `./download_logs.sh` and send the output zip fil
 
 To install Redact Enterprise as a systemd service, use the `./install.sh` script and supply an installtion directory. For example, `sudo ./install.sh /etc` will install the systemd service and store the necessary files under `/etc`. To uninstall, run `./uninstall.sh`, also with the installtion directory as an argument.
 
-After running the installtion script, the service can be started with `sudo systemctl start redact.service` and stopped with `sudo systemctl stop redact.service`. Starting the service for the first time may take a few minutes, since the docker images may need to be downloaded. 
+After running the installtion script, the service can be started with `sudo systemctl start redact.service` and stopped with `sudo systemctl stop redact.service`. Starting the service for the first time may take a few minutes, since the docker images may need to be downloaded.
