@@ -10,7 +10,6 @@ ExecStartPre=/bin/bash -c '${INSTALLATION_DIR}/stop_redact.sh'
 ExecStart=/bin/bash -c '${INSTALLATION_DIR}/start_redact.sh'
 ExecStop=/bin/bash -c '${INSTALLATION_DIR}/stop_redact.sh'
 Type=simple
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
