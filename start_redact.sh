@@ -8,7 +8,7 @@ fi
 source $installation_dir/docker-compose.env
 set +a
 
-while getopts u opt; do
+while getopts "u:d:" opt; do
     case $opt in
         u) ui="SET"
         ;;
