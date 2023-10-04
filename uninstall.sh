@@ -16,6 +16,8 @@ if [ -z "$installation_dir" ]; then
     exit 1
 fi
 
+systemctl stop redact.service
+
 # remove installation files
 rm -rf $installation_dir/redact
 rm /etc/systemd/system/redact.service
