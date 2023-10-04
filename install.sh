@@ -22,7 +22,6 @@ if [ -z "$installation_dir" ]; then
     echo "Please provide an installtion directory with './install.sh /path/to/installation'"
     exit 1
 fi
-installation_dir="$installation_dir/redact"
 
 if [ -f "/etc/systemd/system/redact.service" ]; then
     echo "A Redact service is already installed. Please remove it and install again."

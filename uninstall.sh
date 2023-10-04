@@ -19,7 +19,7 @@ fi
 systemctl stop redact.service
 
 # remove installation files
-rm -rf $installation_dir/redact
+rm -rf $installation_dir
 rm /etc/systemd/system/redact.service
 rm -rf /etc/systemd/system/redact.service.d
 
