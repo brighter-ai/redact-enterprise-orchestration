@@ -27,9 +27,10 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 0. (optional) Change the default configuration as described [below](#configuration)
 
 1. Start redact in default configuration by running:
-`./start_redact.sh`
+`./start_redact.sh -d`
+the `-d` flag is recommended to run the containers in detached mode.
 if you also want to start the graphical user interface add the `-u` flag
-`./start_redact.sh -u`
+`./start_redact.sh -du`
 
 2. Start anonymizing using the ui ( http://$HOSTIP:8080/ui ), sra ( http://$HOSTIP:8080/sra ), or the flassger interface( http://$HOSTIP:8787 ).
 
@@ -108,3 +109,17 @@ DISABLE_DNAT={true | false}
 If there are any issues with processing files, the error logs of all micro-services can be downloaded and sent to Brighter AI for further investigation.
 
 To download the error logs, run `./download_logs.sh` and send the output zip file (`redact_logs.zip`) to Brighter AI
+
+#### Installing as a Service
+
+To install Redact Enterprise as a systemd service, use the `./install.sh` script and supply an installation directory. For example, `sudo ./install.sh /etc/redact` will create the `redact` directory under `/etc` and install the systemd service. To uninstall, run `sudo ./uninstall.sh /etc/redact` using the same directory as an argument that was used during installation. Uninstalling the service also stops the service, which can take up to a minute.
+
+After installing the service, the `start_redact.sh` and `stop_redact.sh` scripts should no longer be needed.
+
+After running the installation script, the service can be started with `sudo systemctl start redact.service` and stopped with `sudo systemctl stop redact.service`. Starting the service for the first time may take a few minutes, since the docker images may need to be downloaded.
+
+To allow systemd to manage the service, run `sudo systemctl enable redact.service`. This will tell systemd to start the service if the machine which it is running on is rebooted. **During restarts, all processing and processed data will be lost.**
+
+The service can be disabled using `sudo systemctl disable redact.service`. This will tell systemd not to manage the service anymore, but will not stop the service. `sudo systemctl stop redact.service` will still need to be run to stop the service. Whether or not the service is enabled can be checked with `sudo systemctl is-enabled redact.service`.
+
+The current health and status of the service can be seen by running `sudo systemctl status redact.service`, and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers. 
