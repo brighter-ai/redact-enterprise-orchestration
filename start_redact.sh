@@ -3,7 +3,7 @@ set -o errexit
 set -a
 installation_dir=${INSTALLATION_DIR}
 if [ -z $installation_dir ]; then
-    installation_dir="."
+    installation_dir=$(realpath ".")
 fi
 source $installation_dir/docker-compose.env
 set +a

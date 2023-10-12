@@ -27,7 +27,7 @@ services:
     ports:
       - '${REDACT_API_PORT}:8787'
     volumes:
-      - '${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal'
+      - ${PWD}/${REDACT_LICENSE_FILE}:/license.bal
     environment:
       REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
       REDACT_GPU_URL: 'redact-gpu:8001'
