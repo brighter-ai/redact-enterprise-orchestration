@@ -4,6 +4,7 @@ set -a
 installation_dir=${INSTALLATION_DIR}
 if [ -z $installation_dir ]; then
     installation_dir=$(realpath ".")
+    export INSTALLATION_DIR=${installation_dir}
 fi
 source $installation_dir/docker-compose.env
 set +a
