@@ -17,7 +17,7 @@ Log in to the brighter AI docker registry with your credentials:
 
 `docker login docker.brighter.ai -u enterprise -p <api-key>`
 
-Make sure you have access to your redact license file. For this guide, we'll assume that it's stored under `/home/${USER}/license.bal` and named `./license.bal`
+Make sure you have access to your redact license file. For this guide, we'll assume that it's stored in this project and named `./license.bal`
 
 | Usage-based licenses | If you're using a usage-based license you must have an active internet connection at all times or run the Redact-License-Server!       |
 |-------------|:------------------------|
