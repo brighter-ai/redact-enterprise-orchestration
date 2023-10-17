@@ -15,7 +15,7 @@ while getopts "ua" opt; do
     case $opt in
         u) ui="SET"
         ;;
-        d) attach="SET"
+        a) attach="SET"
         ;;
     esac
 done
