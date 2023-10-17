@@ -129,7 +129,7 @@ The current health and status of the service can be seen by running `sudo system
 
 The `-a` flag is recommended to run the containers in attached mode, aka launch in foreground.
 You can combine this with the graphical user interface by adding the `-u` flag
-`./start_redact.sh -du`
+`./start_redact.sh -au`
 
 #### -u (UI or utils) flag
 
