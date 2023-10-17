@@ -7,7 +7,7 @@ Requires=docker.service
 TimeoutStartSec=0
 Environment="INSTALLATION_DIR=/etc/redact"
 ExecStartPre=/bin/bash -c '${INSTALLATION_DIR}/stop_redact.sh'
-ExecStart=/bin/bash -c '${INSTALLATION_DIR}/start_redact.sh'
+ExecStart=/bin/bash -c '${INSTALLATION_DIR}/start_redact.sh -a'
 ExecStop=/bin/bash -c '${INSTALLATION_DIR}/stop_redact.sh'
 Type=simple
 
