@@ -2,10 +2,11 @@
 set -o errexit
 set -a
 # systemd service provides installation_dir as an environment variable
-installation_dir=${INSTALLATION_DIR}
-if [ -z $installation_dir ]; then
+if [ -z ${INSTALLATION_DIR} ]; then
     installation_dir="$(realpath '.')"
     export INSTALLATION_DIR="${installation_dir}"
+else
+    installation_dir="$INSTALLATION_DIR"
 fi
 source "$installation_dir/docker-compose.env"
 set +a
