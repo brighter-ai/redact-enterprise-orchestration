@@ -17,7 +17,7 @@ if [ $(docker --version | grep -oE 'Docker version [0-9]+' | grep -oE '[0-9]+') 
 fi
 
 # check installation directories
-installation_dir=$1
+installation_dir="$1"
 if [ -z "$installation_dir" ]; then
     echo "Please provide an installtion directory with './install.sh /path/to/installation'"
     exit 1
@@ -29,12 +29,12 @@ if [ -f "/etc/systemd/system/redact.service" ]; then
 fi
 
 # copy license and external files
-mkdir $installation_dir
-cp docker-compose.env $installation_dir
-cp docker-compose.yaml $installation_dir
-cp license.bal $installation_dir
-cp start_redact.sh $installation_dir
-cp stop_redact.sh $installation_dir
+mkdir "$installation_dir"
+cp docker-compose.env "$installation_dir"
+cp docker-compose.yaml "$installation_dir"
+cp license.bal "$installation_dir"
+cp start_redact.sh "$installation_dir"
+cp stop_redact.sh "$installation_dir"
 
 # put unit files in directories
 cp redact.service /etc/systemd/system/

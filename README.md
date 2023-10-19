@@ -17,7 +17,7 @@ Log in to the brighter AI docker registry with your credentials:
 
 `docker login docker.brighter.ai -u enterprise -p <api-key>`
 
-Make sure you have access to your redact license file. For this guide, we'll assume that it's stored under `/home/${USER}/license.bal` and named `./license.bal`
+Make sure you have access to your redact license file. For this guide, we'll assume that it's stored in this project and named `./license.bal`
 
 | Usage-based licenses | If you're using a usage-based license you must have an active internet connection at all times or run the Redact-License-Server!       |
 |-------------|:------------------------|
@@ -27,10 +27,7 @@ Make sure you have access to your redact license file. For this guide, we'll ass
 0. (optional) Change the default configuration as described [below](#configuration)
 
 1. Start redact in default configuration by running:
-`./start_redact.sh -d`
-the `-d` flag is recommended to run the containers in detached mode.
-if you also want to start the graphical user interface add the `-u` flag
-`./start_redact.sh -du`
+`./start_redact.sh`
 
 2. Start anonymizing using the ui ( http://$HOSTIP:8080/ui ), sra ( http://$HOSTIP:8080/sra ), or the flassger interface( http://$HOSTIP:8787 ).
 
@@ -38,6 +35,7 @@ if you also want to start the graphical user interface add the `-u` flag
 `./stop_redact.sh`
 
 IMPORTANT: The scripts require to run docker compose under the command `docker compose`. That is compose v2 and the compose plugin for docker. In compose v1 one needed to run `docker-compose`. [More](https://docs.docker.com/compose/migrate/).
+
 
 ### Configuration
 
@@ -57,6 +55,7 @@ The following GPU-specific containers exist, and can be used only with the speci
 
 | Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     |
 |------------------|-------------------------------|---------------------------------|----------------------------|
+| redact-gpu:2.7.0 | redact-gpu:2.7.0-T4           | redact-gpu:2.7.0-A100           | redact-gpu:2.7.0-2080ti    |
 | redact-gpu:2.6.1 | redact-gpu:2.6.1-T4           | redact-gpu:2.6.1-A100           | redact-gpu:2.6.1-2080ti    |
 | redact-gpu:2.6.0 | redact-gpu:2.6.0-T4           | redact-gpu:2.6.0-A100           | redact-gpu:2.6.0-2080ti    |
 | redact-gpu:2.5.1 | redact-gpu:2.5.1-T4           | redact-gpu:2.5.1-A100           | redact-gpu:2.5.1-2080ti    |
@@ -123,3 +122,16 @@ To allow systemd to manage the service, run `sudo systemctl enable redact.servic
 The service can be disabled using `sudo systemctl disable redact.service`. This will tell systemd not to manage the service anymore, but will not stop the service. `sudo systemctl stop redact.service` will still need to be run to stop the service. Whether or not the service is enabled can be checked with `sudo systemctl is-enabled redact.service`.
 
 The current health and status of the service can be seen by running `sudo systemctl status redact.service`, and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers. 
+
+### Other command flags for start_redact.sh
+
+#### -a (attach) flag
+
+The `-a` flag is recommended to run the containers in attached mode, aka launch in foreground.
+You can combine this with the graphical user interface by adding the `-u` flag
+`./start_redact.sh -au`
+
+#### -u (UI or utils) flag
+
+This flag is indicating that the utils container should be started, which 
+contains notably the UI functionality.

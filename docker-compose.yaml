@@ -27,7 +27,7 @@ services:
     ports:
       - '${REDACT_API_PORT}:8787'
     volumes:
-      - '${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal'
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
     environment:
       REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
       REDACT_GPU_URL: 'redact-gpu:8001'
@@ -64,6 +64,6 @@ services:
       redact:
         condition: service_healthy
     ports:
-      - '${REDACT_UI_PORT}:80'
+      - '${REDACT_UI_PORT}:8080'
     environment:
       REDACT_URL: http://${HOST_IP}:${REDACT_API_PORT}

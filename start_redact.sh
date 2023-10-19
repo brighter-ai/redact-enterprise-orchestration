@@ -1,24 +1,27 @@
 #!/bin/bash
 set -o errexit
 set -a
-installation_dir=${INSTALLATION_DIR}
-if [ -z $installation_dir ]; then
-    installation_dir="."
+# systemd service provides installation_dir as an environment variable
+if [ -z ${INSTALLATION_DIR} ]; then
+    installation_dir="$(realpath '.')"
+    export INSTALLATION_DIR="${installation_dir}"
+else
+    installation_dir="$INSTALLATION_DIR"
 fi
-source $installation_dir/docker-compose.env
+source "$installation_dir/docker-compose.env"
 set +a
 
-while getopts "ud" opt; do
+while getopts "ua" opt; do
     case $opt in
         u) ui="SET"
         ;;
-        d) detach="SET"
+        a) attach="SET"
         ;;
     esac
 done
 
 # check license file
-if [ ! -f $installation_dir/${REDACT_LICENSE_FILE} ]; then
+if [ ! -f "$installation_dir/${REDACT_LICENSE_FILE}" ]; then
     echo "Please make sure that license file with path \"$installation_dir/${REDACT_LICENSE_FILE}\" exists."
     exit 1
 fi
@@ -46,14 +49,14 @@ if [ ${ui+x} ]; then
 fi
 
 args="--force-recreate --remove-orphans"
-if [ -v detach ]; then
+if [ ! -v attach ]; then
     args="${args} -d"
 fi
 
 export HOST_IP=$(hostname -I | awk '{print $1}')
-docker compose -f $installation_dir/docker-compose.yaml up ${args} ${services}
+docker compose -f "$installation_dir/docker-compose.yaml" up ${args} ${services}
 
-if [ -v detach ]; then
+if [ ! -v attach ]; then
     # print some urls
     echo "redact API running at http://${HOST_IP}:${REDACT_API_PORT}"
     if [ ${ui+x} ]; then
