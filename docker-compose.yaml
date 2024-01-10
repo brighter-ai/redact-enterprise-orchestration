@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2021-2024 Brighter AI Technologies GmbH
+# SPDX-License-Identifier: MIT
 version: '3.7'
 services:
   redact:

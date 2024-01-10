@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2021-2024 Brighter AI Technologies GmbH
+# SPDX-License-Identifier: MIT
+
 set -o errexit
 set -a
 # systemd service provides installation_dir as an environment variable
