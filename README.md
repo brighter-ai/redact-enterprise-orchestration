@@ -1,8 +1,14 @@
 [![Brighter AI logo](./pictures/brighter.png)](https://brighter.ai/)
 
-# Running brighter Redact Enterprise
+# Orchestrate/run brighter Redact Enterprise
 
-Start an instance of brighter Redact Enterprise, consisting of three redact containers which are managed by docker-compose.
+This MIT-licensed repository provides tools to start/stop an instance of brighter Redact 
+Enterprise. It references proprietary brighter AI containers for which a commercial license is
+required. Please contact hello@brighter.ai for obtaining a license.
+
+brighter Redact Enterprise consists of three redact containers which are run by docker-compose.
+
+Automatic starting and stopping can be set up via systemd, see below.
 
 ## brighter Redact Enterprise
 
