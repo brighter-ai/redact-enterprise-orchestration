@@ -2,7 +2,7 @@
 
 # Orchestrate/run brighter Redact Enterprise
 
-This MIT-licensed repository provides tools to start/stop an instance of brighter Redact 
+This MIT-licensed repository provides tools to start/stop an instance of brighter Redact
 Enterprise. It references proprietary brighter AI containers for which a commercial license is
 required. Please contact hello@brighter.ai for obtaining a license.
 
@@ -61,6 +61,7 @@ The following GPU-specific containers exist, and can be used only with the speci
 
 | Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     |
 |------------------|-------------------------------|---------------------------------|----------------------------|
+| redact-gpu:3.0.0 | redact-gpu:3.0.0-T4           | redact-gpu:3.0.0-A100           | redact-gpu:3.0.0-2080ti    |
 | redact-gpu:2.8.0 | redact-gpu:2.8.0-T4           | redact-gpu:2.8.0-A100           | redact-gpu:2.8.0-2080ti    |
 | redact-gpu:2.7.0 | redact-gpu:2.7.0-T4           | redact-gpu:2.7.0-A100           | redact-gpu:2.7.0-2080ti    |
 | redact-gpu:2.6.1 | redact-gpu:2.6.1-T4           | redact-gpu:2.6.1-A100           | redact-gpu:2.6.1-2080ti    |
@@ -106,7 +107,6 @@ DISABLE_FACES={true | false}
 DISABLE_LICENSE_PLATES={true | false}
 DISABLE_PERSONS={true | false}
 DISABLE_BLUR={true | false}
-DISABLE_EXTRACT={true | false}
 DISABLE_DNAT={true | false}
 ```
 
@@ -128,7 +128,7 @@ To allow systemd to manage the service, run `sudo systemctl enable redact.servic
 
 The service can be disabled using `sudo systemctl disable redact.service`. This will tell systemd not to manage the service anymore, but will not stop the service. `sudo systemctl stop redact.service` will still need to be run to stop the service. Whether or not the service is enabled can be checked with `sudo systemctl is-enabled redact.service`.
 
-The current health and status of the service can be seen by running `sudo systemctl status redact.service`, and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers. 
+The current health and status of the service can be seen by running `sudo systemctl status redact.service`, and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers.
 
 ### Other command flags for start_redact.sh
 
@@ -140,5 +140,5 @@ You can combine this with the graphical user interface by adding the `-u` flag
 
 #### -u (UI or utils) flag
 
-This flag is indicating that the utils container should be started, which 
+This flag is indicating that the utils container should be started, which
 contains notably the UI functionality.
