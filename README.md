@@ -15,6 +15,11 @@ Automatic starting and stopping can be set up via systemd, see below.
 brighter Redact Enterprise is an ecosystem comprising of three containers. The three containers - redact, redact-gpu and redact-utils are described in the architecture below.
 ![image](./pictures/redact_containers.png)
 
+## Further information
+
+* [brighter documentation website](https://docs.brighter.ai/), covering introduction, requirements, API, and more
+* [Release notes on documentation website](https://docs.brighter.ai/docs/release-notes)
+
 ## Running brighter Redact services
 
 ### Prerequisites
