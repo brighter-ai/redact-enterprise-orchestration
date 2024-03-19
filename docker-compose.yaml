@@ -37,6 +37,187 @@ services:
       DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+  redact2:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}2
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT2}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+  redact3:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}3
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT3}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+  redact4:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}4
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT4}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+  redact5:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}5
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT5}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+  redact6:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}6
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT6}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
 
   redact-gpu:
     image: ${REDACT_GPU_IMAGE}
