@@ -38,6 +38,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
   redact2:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}2
@@ -74,6 +76,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
   redact3:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}3
@@ -110,6 +114,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
   redact4:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}4
@@ -146,6 +152,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
   redact5:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}5
@@ -182,6 +190,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
   redact6:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}6
@@ -218,6 +228,8 @@ services:
       DISABLE_BLUR: ${DISABLE_BLUR}
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 2
 
   redact-gpu:
     image: ${REDACT_GPU_IMAGE}
