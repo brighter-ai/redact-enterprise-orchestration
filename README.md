@@ -136,7 +136,7 @@ To allow systemd to manage the service, run `sudo systemctl enable redact.servic
 
 The service can be disabled using `sudo systemctl disable redact.service`. This will tell systemd not to manage the service anymore, but will not stop the service. `sudo systemctl stop redact.service` will still need to be run to stop the service. Whether or not the service is enabled can be checked with `sudo systemctl is-enabled redact.service`.
 
-The current health and status of the service can be seen by running `sudo systemctl status redact.service`, and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers.
+The current health and status of the service can be seen by running `sudo systemctl status redact.service`, all logs of the systemdstatus can be retrieved by `journalctl -u redact.service` and the status of the docker containers themselves can be seen by running `docker ps` and interacting with the `redact` and `redact-gpu` containers.
 
 ### Other command flags for start_redact.sh
 
