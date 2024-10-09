@@ -46,7 +46,8 @@ done
 
 # start containers
 # select what services to start depending on the -u flag
-services="redact redact2 redact3 redact4 redact5 redact6 redact-gpu"
+#services="redact redact-gpu"
+services="redact redact2 redact3 redact4 redact5 redact6 redact7 redact8 redact9 redact0 redact-gpu"
 if [ ${ui+x} ]; then
     services="${services} redact-utils";
 fi

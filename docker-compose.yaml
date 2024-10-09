@@ -39,7 +39,7 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
   redact2:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}2
@@ -77,7 +77,7 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
   redact3:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}3
@@ -115,7 +115,7 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
   redact4:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}4
@@ -153,7 +153,7 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
   redact5:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}5
@@ -191,7 +191,7 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
   redact6:
     image: '${REDACT_IMAGE}'
     container_name: ${REDACT_CONTAINER_NAME}6
@@ -229,7 +229,159 @@ services:
       DISABLE_DNAT: ${DISABLE_DNAT}
       NUM_PROC_IMAGE_COMPOSER: 12
       NUM_PROC_DETECTION: 4
-      NUM_PARALLEL_ACTIVE_VIDEOS: 2
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
+  redact7:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}7
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT7}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
+  redact8:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}8
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT8}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
+  redact9:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}9
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT9}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
+  redact0:
+    image: '${REDACT_IMAGE}'
+    container_name: ${REDACT_CONTAINER_NAME}0
+    depends_on:
+      redact-gpu:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-s",
+          "-o",
+          "/dev/null",
+          "-I",
+          "-w",
+          "\"%{http_code}\"",
+          "http://127.0.0.1:8787"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: "10s"
+    restart: always
+    ports:
+      - '${REDACT_API_PORT0}:8787'
+    volumes:
+      - ${INSTALLATION_DIR}/${REDACT_LICENSE_FILE}:/license.bal
+    environment:
+      REDACT_INFER_METRICS_URL: 'redact-gpu:8000'
+      REDACT_GPU_URL: 'redact-gpu:8001'
+      DISABLE_FACES: ${DISABLE_FACES}
+      DISABLE_LICENSE_PLATES: ${DISABLE_LICENSE_PLATES}
+      DISABLE_BLUR: ${DISABLE_BLUR}
+      DISABLE_DNAT: ${DISABLE_DNAT}
+      NUM_PROC_IMAGE_COMPOSER: 12
+      NUM_PROC_DETECTION: 4
+      NUM_PARALLEL_ACTIVE_VIDEOS: 1
 
   redact-gpu:
     image: ${REDACT_GPU_IMAGE}
