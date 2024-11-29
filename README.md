@@ -151,3 +151,7 @@ You can combine this with the graphical user interface by adding the `-u` flag
 
 This flag is indicating that the utils container should be started, which
 contains notably the UI functionality.
+
+#### -h (high throughput) flag
+
+This flag starts the `redact` container with additional configuration parameters which allow high throughput for application instances running on A10 machines. This option should only be used if suggested by brighter AI technical support personnel. 

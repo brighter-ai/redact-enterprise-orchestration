@@ -12,16 +12,20 @@ else
     installation_dir="$INSTALLATION_DIR"
 fi
 source "$installation_dir/docker-compose.env"
-set +a
 
-while getopts "ua" opt; do
+while getopts "uah" opt; do
     case $opt in
         u) ui="SET"
         ;;
         a) attach="SET"
         ;;
+        h) source "$installation_dir/high-throughput.env"
+        ;;
     esac
 done
+
+# turn of env var marking from sourced env files
+set +a
 
 # check license file
 if [ ! -f "$installation_dir/${REDACT_LICENSE_FILE}" ]; then
