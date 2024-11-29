@@ -14,7 +14,7 @@ fi
 source "$installation_dir/docker-compose.env"
 set +a
 
-while getopts "ua" opt; do
+while getopts "uah" opt; do
     case $opt in
         u) ui="SET"
         ;;
