@@ -20,6 +20,8 @@ while getopts "ua" opt; do
         ;;
         a) attach="SET"
         ;;
+        h) source "$installation_dir/high-throughput.env"
+        ;;
     esac
 done
 
