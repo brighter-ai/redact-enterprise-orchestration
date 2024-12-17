@@ -34,6 +34,7 @@ fi
 # copy license and external files
 mkdir "$installation_dir"
 cp docker-compose.env "$installation_dir"
+cp high-throughput.env "$installation_dir"
 cp docker-compose.yaml "$installation_dir"
 cp license.bal "$installation_dir"
 cp start_redact.sh "$installation_dir"
