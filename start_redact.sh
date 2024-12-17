@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 set -o errexit
+# enable automatic EXPORT of all vars defined or sourced after this line
 set -a
 # systemd service provides installation_dir as an environment variable
 if [ -z ${INSTALLATION_DIR} ]; then
@@ -24,7 +25,8 @@ while getopts "uah" opt; do
     esac
 done
 
-# turn of env var marking from sourced env files
+# turn of automatic exporting of env vars defined or sourced from env files after this line.
+# Variables already sourced, like from source ... docker-compose.env above, will remain exported.
 set +a
 
 # check license file
