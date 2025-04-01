@@ -66,6 +66,7 @@ The following GPU-specific containers exist, and can be used only with the speci
 
 | Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     | A10 Optimized Image        |
 |------------------|-------------------------------|---------------------------------|----------------------------|----------------------------|
+| redact-gpu:4.0.0 | redact-gpu:4.0.0-T4 | redact-gpu:4.0.0-ampere-plus-A100          | redact-gpu:4.0.0-2080ti    | redact-gpu:4.0.0-ampere-plus-A10 |
 | redact-gpu:3.4.0 | redact-gpu:3.4.0-T4           |                                 |                            |                            |
 | redact-gpu:3.3.0 | redact-gpu:3.3.0-T4           | redact-gpu:3.3.0-A100           | redact-gpu:3.3.0-2080ti    | redact-gpu:3.3.0-A10       |
 | redact-gpu:3.2.0 | redact-gpu:3.2.0-T4           | redact-gpu:3.2.0-A100           | redact-gpu:3.2.0-2080ti    |                            |
