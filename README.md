@@ -64,23 +64,23 @@ REDACT_UTILS_IMAGE=...
 
 The following GPU-specific containers exist, and can be used only with the specified GPU type for speed improvements:
 
-| Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     | A10 Optimized Image        |
-|------------------|-------------------------------|---------------------------------|----------------------------|----------------------------|
-| redact-gpu:4.0.0 | redact-gpu:4.0.0-T4 | redact-gpu:4.0.0-ampere-plus-A100          | redact-gpu:4.0.0-2080ti    | redact-gpu:4.0.0-ampere-plus-A10 |
-| redact-gpu:3.4.0 | redact-gpu:3.4.0-T4           |                                 |                            |                            |
-| redact-gpu:3.3.0 | redact-gpu:3.3.0-T4           | redact-gpu:3.3.0-A100           | redact-gpu:3.3.0-2080ti    | redact-gpu:3.3.0-A10       |
-| redact-gpu:3.2.0 | redact-gpu:3.2.0-T4           | redact-gpu:3.2.0-A100           | redact-gpu:3.2.0-2080ti    |                            |
-|                  |                               |                                 |                            | redact-gpu:3.1.1-A10       |
-| redact-gpu:3.1.0 | redact-gpu:3.1.0-T4           | redact-gpu:3.1.0-A100           | redact-gpu:3.1.0-2080ti    |                            |
-| redact-gpu:3.0.0 | redact-gpu:3.0.0-T4           | redact-gpu:3.0.0-A100           | redact-gpu:3.0.0-2080ti    |                            |
-| redact-gpu:2.8.0 | redact-gpu:2.8.0-T4           | redact-gpu:2.8.0-A100           | redact-gpu:2.8.0-2080ti    |                            |
-| redact-gpu:2.7.0 | redact-gpu:2.7.0-T4           | redact-gpu:2.7.0-A100           | redact-gpu:2.7.0-2080ti    |                            |
-| redact-gpu:2.6.1 | redact-gpu:2.6.1-T4           | redact-gpu:2.6.1-A100           | redact-gpu:2.6.1-2080ti    |                            |
-| redact-gpu:2.6.0 | redact-gpu:2.6.0-T4           | redact-gpu:2.6.0-A100           | redact-gpu:2.6.0-2080ti    |                            |
-| redact-gpu:2.5.1 | redact-gpu:2.5.1-T4           | redact-gpu:2.5.1-A100           | redact-gpu:2.5.1-2080ti    |                            |
-| redact-gpu:2.5.0 | redact-gpu:2.5.0-T4           | redact-gpu:2.5.0-A100           | redact-gpu:2.5.0-2080ti    |                            |
-| redact-gpu:2.4.0 | redact-gpu:2.4.0-optimized-T4 | redact-gpu:2.4.0-optimized-A100 |                            |                            |
-| redact-gpu:2.3.1 | redact-gpu:2.3.1-trt-T4       |                                 |                            |                            |
+| Standard Image   | T4 Optimized Image            | A100 Optimized Image            | 2080TI Optimized Image     | A10 Optimized Image        | Ampere Architecture Optimized Image       |
+|------------------|-------------------------------|---------------------------------|----------------------------|----------------------------|----------------------------|
+| redact-gpu:4.0.0 | redact-gpu:4.0.0-T4 | redact-gpu:4.0.0-A100          | redact-gpu:4.0.0-2080ti    | redact-gpu:4.0.0-A10 | redact-gpu:4.0.0-ampere-plus |
+| redact-gpu:3.4.0 | redact-gpu:3.4.0-T4           |                                 |                            |                            |                            |
+| redact-gpu:3.3.0 | redact-gpu:3.3.0-T4           | redact-gpu:3.3.0-A100           | redact-gpu:3.3.0-2080ti    | redact-gpu:3.3.0-A10       |                            |
+| redact-gpu:3.2.0 | redact-gpu:3.2.0-T4           | redact-gpu:3.2.0-A100           | redact-gpu:3.2.0-2080ti    |                            |                            |
+|                  |                               |                                 |                            | redact-gpu:3.1.1-A10       |                            |
+| redact-gpu:3.1.0 | redact-gpu:3.1.0-T4           | redact-gpu:3.1.0-A100           | redact-gpu:3.1.0-2080ti    |                            |                            |
+| redact-gpu:3.0.0 | redact-gpu:3.0.0-T4           | redact-gpu:3.0.0-A100           | redact-gpu:3.0.0-2080ti    |                            |                            |
+| redact-gpu:2.8.0 | redact-gpu:2.8.0-T4           | redact-gpu:2.8.0-A100           | redact-gpu:2.8.0-2080ti    |                            |                            |
+| redact-gpu:2.7.0 | redact-gpu:2.7.0-T4           | redact-gpu:2.7.0-A100           | redact-gpu:2.7.0-2080ti    |                            |                            |
+| redact-gpu:2.6.1 | redact-gpu:2.6.1-T4           | redact-gpu:2.6.1-A100           | redact-gpu:2.6.1-2080ti    |                            |                            |
+| redact-gpu:2.6.0 | redact-gpu:2.6.0-T4           | redact-gpu:2.6.0-A100           | redact-gpu:2.6.0-2080ti    |                            |                            |
+| redact-gpu:2.5.1 | redact-gpu:2.5.1-T4           | redact-gpu:2.5.1-A100           | redact-gpu:2.5.1-2080ti    |                            |                            |
+| redact-gpu:2.5.0 | redact-gpu:2.5.0-T4           | redact-gpu:2.5.0-A100           | redact-gpu:2.5.0-2080ti    |                            |                            |
+| redact-gpu:2.4.0 | redact-gpu:2.4.0-optimized-T4 | redact-gpu:2.4.0-optimized-A100 |                            |                            |                            |
+| redact-gpu:2.3.1 | redact-gpu:2.3.1-trt-T4       |                                 |                            |                            |                            |
 
 This applys to the `REDACT_GPU_IMAGE` located in `docker-compose.env`
 
