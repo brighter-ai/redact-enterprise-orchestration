@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2017-2025 Brighter AI Technologies GmbH. All rights reserved.
+# Copyright (c) 2017-2026 Brighter AI Technologies GmbH. All rights reserved.
 # Unauthorized use, copying, reproduction, or distribution of this file, via any medium,
 # is strictly prohibited.
 
