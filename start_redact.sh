@@ -1,6 +1,8 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2021-2024 Brighter AI Technologies GmbH
-# SPDX-License-Identifier: MIT
+
+# Copyright (c) 2017-2025 Brighter AI Technologies GmbH. All rights reserved.
+# Unauthorized use, copying, reproduction, or distribution of this file, via any medium,
+# is strictly prohibited.
 
 set -o errexit
 # enable automatic EXPORT of all vars defined or sourced after this line
