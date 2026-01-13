@@ -1,5 +1,5 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2021-2024 Brighter AI Technologies GmbH
+# SPDX-FileCopyrightText: 2017-2026 Brighter AI Technologies GmbH
 # SPDX-License-Identifier: MIT
 
 set -o errexit
