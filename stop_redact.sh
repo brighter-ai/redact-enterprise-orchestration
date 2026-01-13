@@ -1,8 +1,6 @@
 #!/bin/bash
-
-# Copyright (c) 2017-2026 Brighter AI Technologies GmbH. All rights reserved.
-# Unauthorized use, copying, reproduction, or distribution of this file, via any medium,
-# is strictly prohibited.
+# SPDX-FileCopyrightText: 2017-2026 Brighter AI Technologies GmbH
+# SPDX-License-Identifier: MIT
 
 set -o errexit
 set -a
